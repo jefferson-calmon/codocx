@@ -2,6 +2,10 @@
 
 Codocx é uma ferramenta de linha de comando (CLI) simples e eficiente para automatizar a geração de documentação de qualquer projeto de software, independentemente da linguagem de programação ou stack tecnológica utilizada.
 
+## Visão Geral
+
+A documentação é essencial, mas muitas vezes negligenciada. Codocx resolve esse problema ao permitir que desenvolvedores gerem documentação atualizada e acessível com apenas alguns comandos. A ferramenta é compatível com qualquer linguagem de programação, garantindo flexibilidade e eficiência em qualquer ambiente de desenvolvimento.
+
 ## Execução via CLI
 
 A CLI do Codocx foi projetada para ser extremamente fácil de usar, permitindo a geração de documentação diretamente a partir da estrutura de código do seu projeto.
@@ -27,10 +31,6 @@ A CLI do Codocx foi projetada para ser extremamente fácil de usar, permitindo a
 ### Ignorando Arquivos
 
 Caso queira excluir determinados arquivos ou diretórios da geração da documentação, você pode configurar isso editando o arquivo `src/constants/index.ts`.
-
-## Visão Geral
-
-A documentação é essencial, mas muitas vezes negligenciada. Codocx resolve esse problema ao permitir que desenvolvedores gerem documentação atualizada e acessível com apenas alguns comandos. A ferramenta é compatível com qualquer linguagem de programação, garantindo flexibilidade e eficiência em qualquer ambiente de desenvolvimento.
 
 ## Requisitos
 
