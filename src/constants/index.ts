@@ -98,7 +98,7 @@ export const IGNORE = [
     "package-lock.json",
     "yarn.lock",
     // "*.md",
-    "*.mdx",
+    // "*.mdx",
 
     // Video exclude
     ".github",
@@ -107,12 +107,8 @@ export const IGNORE = [
     ".eslintignore",
     ".eslintrc.json",
     "LICENSE",
-    // "package.json",
     "prettier.config.js",
     "tsup.config.ts",
-    // "constants",
-    // "helpers",
-    // "config",
 
     // Padrões de arquivos
     "*.jpg",
