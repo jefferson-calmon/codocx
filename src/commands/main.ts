@@ -7,6 +7,7 @@ import { flattenTree } from "../helpers/flattenTree.ts";
 import { generateIntroduction } from "./actions/generateIntroduction.ts";
 import { generateDocs } from "./actions/generateDocs.ts";
 import { configApiKeyEnv } from "../helpers/validateApiKeyEnv.ts";
+import path from "path";
 
 interface CommandOptions {
     Path: string;
@@ -17,9 +18,12 @@ export async function main(options: CommandOptions, command: Command) {
 
     await configApiKeyEnv();
 
+    const targetPath = options.Path || path.resolve();
+    prompt.log.info(`Usando o diretório  ${chalk.magenta(targetPath)}`);
+
     loading.start("Analisando a árvore de arquivos e diretórios");
 
-    const tree = await getTree(options.Path);
+    const tree = await getTree(targetPath);
     const flattedTree = flattenTree(tree.items);
 
     loading.stop(
