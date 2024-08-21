@@ -6,7 +6,7 @@ import { getTree } from "../helpers/getTree.ts";
 import { flattenTree } from "../helpers/flattenTree.ts";
 import { generateIntroduction } from "./actions/generateIntroduction.ts";
 import { generateDocs } from "./actions/generateDocs.ts";
-import { validateApiKeyEnv } from "../helpers/validateApiKeyEnv.ts";
+import { configApiKeyEnv } from "../helpers/validateApiKeyEnv.ts";
 
 interface CommandOptions {
     Path: string;
@@ -15,7 +15,7 @@ interface CommandOptions {
 export async function main(options: CommandOptions, command: Command) {
     const loading = prompt.spinner();
 
-    await validateApiKeyEnv();
+    await configApiKeyEnv();
 
     loading.start("Analisando a árvore de arquivos e diretórios");
 
