@@ -1,0 +1,32 @@
+{
+    "name": "codocx",
+    "version": "1.0.1",
+    "license": "MIT",
+    "type": "module",
+    "main": "./dist/index.js",
+    "bin": {
+        "codocx": "./dist/index.js"
+    },
+    "scripts": {
+        "start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src\\index.ts",
+        "clean": "rimraf ./dist/ ./exec/",
+        "build": "npm run clean && tsup",
+        "pub": "npm run build && npm version patch && npm run publish",
+        "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+    },
+    "dependencies": {
+        "@ai-sdk/openai": "^0.0.45",
+        "@clack/prompts": "^0.7.0",
+        "ai": "^3.3.6",
+        "chalk": "^5.3.0",
+        "child_process": "^1.0.2",
+        "commander": "^12.1.0",
+        "dotenv": "^16.4.5"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.9",
+        "ts-node": "^10.9.2",
+        "tsup": "^8.1.0",
+        "typescript": "^5.5.3"
+    }
+}
