@@ -4,10 +4,9 @@ import { Command } from "commander";
 
 import { getTree } from "../helpers/getTree.ts";
 import { flattenTree } from "../helpers/flattenTree.ts";
-import { cancel } from "../utils/prompt.ts";
-import { OPENAI_API_KEY_REQUIRED_ERR } from "../constants/errors.ts";
 import { generateIntroduction } from "./actions/generateIntroduction.ts";
 import { generateDocs } from "./actions/generateDocs.ts";
+import { validateApiKeyEnv } from "../helpers/validateApiKeyEnv.ts";
 
 interface CommandOptions {
     Path: string;
@@ -16,7 +15,7 @@ interface CommandOptions {
 export async function main(options: CommandOptions, command: Command) {
     const loading = prompt.spinner();
 
-    if (!process.env.OPENAI_API_KEY) return cancel(OPENAI_API_KEY_REQUIRED_ERR);
+    await validateApiKeyEnv();
 
     loading.start("Analisando a árvore de arquivos e diretórios");
 

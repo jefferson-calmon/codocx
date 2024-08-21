@@ -1,11 +1,11 @@
 {
-    "name": "codocx",
+    "name": "codocs",
     "version": "1.0.2",
     "license": "MIT",
     "type": "module",
     "main": "./dist/index.js",
     "bin": {
-        "codocx": "./dist/index.js"
+        "codocs": "./dist/index.js"
     },
     "scripts": {
         "start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src\\index.ts",
