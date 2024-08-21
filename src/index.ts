@@ -10,7 +10,7 @@ const program = new Command();
 
 program
     .version(pkg.version, "-v, --version", "Exibir a versão atual da CLI")
-    .name("codocs")
+    .name("codocx")
     .option("-p, ---path <path>")
     .action(withErrorCatcher(main));
 
