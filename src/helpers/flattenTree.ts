@@ -10,6 +10,7 @@ export function flattenTree(tree: TreeItem[]) {
                     type: node.type,
                     name: node.name,
                     path: node.path,
+                    ignored: node.ignored,
                     fullPath: node.fullPath,
                 });
             } else if (node.type === "directory" && node.children) {
@@ -17,6 +18,7 @@ export function flattenTree(tree: TreeItem[]) {
                     type: node.type,
                     name: node.name,
                     path: node.path,
+                    ignored: node.ignored,
                     fullPath: node.fullPath,
                 });
 

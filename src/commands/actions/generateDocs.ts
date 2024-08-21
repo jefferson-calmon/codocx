@@ -4,14 +4,13 @@ import { log, spinner } from "@clack/prompts";
 import { TreeItemFlatted } from "../../types/index.ts";
 import { generateDoc } from "../../helpers/generateDoc.ts";
 import { saveDocForFile } from "../../helpers/saveDocForFile.ts";
-import { IGNORE } from "../../constants/index.ts";
 
 export async function generateDocs(flattedTree: TreeItemFlatted[]) {
     const loading = spinner();
 
     for (const item of flattedTree) {
-        if (shouldIgnore(item.name)) {
-            log.info(
+        if (item.ignored) {
+            return log.info(
                 `Geração da documentação de ${chalk.cyan(item.name)} foi pulada`
             );
         }
@@ -23,17 +22,4 @@ export async function generateDocs(flattedTree: TreeItemFlatted[]) {
 
         loading.stop(`Documentação gerada para ${chalk.cyan(item.path)}`);
     }
-}
-
-function shouldIgnore(path: string): boolean {
-    return IGNORE.some((pattern) => {
-        const regexPattern = pattern
-            .replace(/\./g, "\\.")
-            .replace(/\*/g, ".*")
-            .replace(/\/$/, "/.*");
-
-        const regex = new RegExp(`^${regexPattern}$`);
-
-        return regex.test(path);
-    });
 }
