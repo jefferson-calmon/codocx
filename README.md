@@ -19,7 +19,7 @@ A CLI do Codocx foi projetada para ser extremamente fácil de usar, permitindo a
     Navegue até o diretório do seu projeto e execute:
 
     ```bash
-    codocx generate -p <DIR_PROJECT>
+    codocx -p <DIR_PROJECT>
     ```
 
     Você pode substituir `<DIR_PROJECT>` pelo caminho do diretório do projeto. Se não fornecer nenhum caminho, a CLI usará o diretório atual.
