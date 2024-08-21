@@ -25,7 +25,6 @@ export async function main(options: CommandOptions, command: Command) {
     loading.stop(
         `${chalk.green(flattedTree.length)} arquivos/diretórios encontrados`
     );
-    prompt.log.message(`${chalk.red(tree.ignored.length)} foram ignorados`);
 
     await generateIntroduction(flattedTree);
     await generateDocs(flattedTree);

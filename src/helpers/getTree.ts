@@ -6,7 +6,6 @@ import { IGNORE } from "../constants/index.ts";
 
 export async function getTree(dirPath: string, currentPath = "") {
     let items: TreeItem[] = [];
-    let ignored = [];
 
     const list = await readdir(dirPath);
 
@@ -14,8 +13,6 @@ export async function getTree(dirPath: string, currentPath = "") {
         const filePath = path.join(dirPath, file);
         const relativePath = path.join(currentPath, file);
         const stats = await stat(filePath);
-
-        if (shouldIgnore(file)) return ignored.push(relativePath);
 
         if (stats.isDirectory()) {
             items.push({
@@ -37,18 +34,5 @@ export async function getTree(dirPath: string, currentPath = "") {
 
     await Promise.all(promises);
 
-    return { items, ignored };
-}
-
-function shouldIgnore(path: string): boolean {
-    return IGNORE.some((pattern) => {
-        const regexPattern = pattern
-            .replace(/\./g, "\\.")
-            .replace(/\*/g, ".*")
-            .replace(/\/$/, "/.*");
-
-        const regex = new RegExp(`^${regexPattern}$`);
-
-        return regex.test(path);
-    });
+    return { items };
 }
