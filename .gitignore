@@ -1,0 +1,52 @@
+# Arquivos e diretórios específicos para o Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Arquivos gerados pelo build
+dist/
+build/
+out/
+lib/
+controllers/
+contexts/
+models/
+*.log.*
+
+# Dependendo do ambiente de desenvolvimento, você pode adicionar:
+# Arquivos e diretórios específicos para o Visual Studio Code
+.vscode/
+.settings/
+
+# Arquivos e diretórios específicos para o JetBrains WebStorm
+.idea/
+*.iml
+
+# Arquivos e diretórios específicos para o editor de texto Sublime Text
+.sublime-project
+.sublime-workspace
+
+# Arquivos e diretórios específicos para o editor de texto Visual Studio
+.vs/
+*.suo
+*.ntvs*
+
+# Arquivos de configuração
+# *.env.local
+
+# Arquivos de credenciais sensíveis
+# .env.local
+.env.development
+.env.test
+.env.production
+apiKey.json
+
+# Arquivos gerados pelos testes
+coverage/
+.nyc_output/
+
+# Outros arquivos e diretórios gerados
+.DS_Store
+Thumbs.db
+.cache/
+.log/

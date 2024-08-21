@@ -11,7 +11,7 @@
         "start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src\\index.ts",
         "clean": "rimraf ./dist/ ./exec/",
         "build": "npm run clean && tsup",
-        "pub": "npm run build && npm version patch && npm run publish",
+        "pub": "npm run build && npm version patch && npm publish",
         "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
     },
     "dependencies": {
