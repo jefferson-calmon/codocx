@@ -8,7 +8,7 @@
         "codocx": "./dist/index.js"
     },
     "scripts": {
-        "start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src\\index.ts",
+        "start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/index.ts",
         "clean": "rimraf ./dist/ ./exec/",
         "build": "npm run clean && tsup",
         "pub": "npm run build && npm version patch && npm publish",
