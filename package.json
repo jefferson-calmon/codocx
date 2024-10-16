@@ -15,12 +15,13 @@
         "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
     },
     "dependencies": {
-        "@ai-sdk/openai": "^0.0.45",
+        "@ai-sdk/openai": "^0.0.67",
         "@clack/prompts": "^0.7.0",
-        "ai": "^3.3.6",
+        "ai": "^3.4.11",
         "chalk": "^5.3.0",
         "commander": "^12.1.0",
-        "dotenv": "^16.4.5"
+        "dotenv": "^16.4.5",
+        "zod": "^3.23.8"
     },
     "devDependencies": {
         "@types/node": "^20.14.9",
