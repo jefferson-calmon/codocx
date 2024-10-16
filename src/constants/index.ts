@@ -125,6 +125,8 @@ export const IGNORE = [
     "*.tar",
     "*.gz",
     "*.rar",
+    "*.lock",
+    "*.sqlite3",
 ];
 
 export const SYSTEM_PROMPT = `Você é um engenheiro de software senior com dezenas de anos de experiência profissional. Você escreve documentações sobre código e estruturas de forma simples, clara e concisa. Seu tom de escrita é técnico.`;
