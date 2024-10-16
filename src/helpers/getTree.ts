@@ -53,7 +53,7 @@ async function getTreeFromDirPath(dirPath: string, currentPath = "") {
             type: isDirectory ? "directory" : "file",
             name: file,
             path: relativePath,
-            fullPath: isDirectory ? path.resolve(filePath) : relativePath,
+            fullPath: path.resolve(filePath),
             children: isDirectory
                 ? (await getTreeFromDirPath(filePath, relativePath)).tree
                 : undefined,
