@@ -4,7 +4,7 @@ import { log, spinner } from "@clack/prompts";
 import { readdir, stat } from "fs/promises";
 
 import { TreeItem } from "../types/index.ts";
-import { shouldIgnore } from "./shouldIgnore.ts";
+import { loadIgnorePatterns, shouldIgnore } from "./ignore.ts";
 import { flattenTree } from "./flattenTree.ts";
 
 export async function getTree(dirPath: string) {
@@ -14,7 +14,8 @@ export async function getTree(dirPath: string) {
         `Analisando a árvore de arquivos e diretórios de ${chalk.cyan(dirPath)}`
     );
 
-    const { tree, ignored } = await getTreeFromDirPath(dirPath);
+    const ignorePatterns = await loadIgnorePatterns();
+    const { tree, ignored } = await getTreeFromDirPath(ignorePatterns, dirPath);
 
     const flattedTree = flattenTree(tree);
 
@@ -33,7 +34,11 @@ export async function getTree(dirPath: string) {
     return { items: tree, flattedTree };
 }
 
-async function getTreeFromDirPath(dirPath: string, currentPath = "") {
+async function getTreeFromDirPath(
+    ignorePatterns: string[],
+    dirPath: string,
+    currentPath = ""
+) {
     let tree: TreeItem[] = [];
     let ignored = [];
 
@@ -44,7 +49,7 @@ async function getTreeFromDirPath(dirPath: string, currentPath = "") {
         const relativePath = path.join(currentPath, file);
         const stats = await stat(filePath);
 
-        const isIgnored = shouldIgnore(relativePath);
+        const isIgnored = shouldIgnore(ignorePatterns, relativePath);
         const isDirectory = stats.isDirectory();
 
         if (isIgnored) return ignored.push(relativePath);
@@ -55,7 +60,13 @@ async function getTreeFromDirPath(dirPath: string, currentPath = "") {
             path: relativePath,
             fullPath: path.resolve(filePath),
             children: isDirectory
-                ? (await getTreeFromDirPath(filePath, relativePath)).tree
+                ? (
+                      await getTreeFromDirPath(
+                          ignorePatterns,
+                          filePath,
+                          relativePath
+                      )
+                  ).tree
                 : undefined,
         };
 

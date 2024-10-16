@@ -1,133 +1,128 @@
-export const IGNORE = [
-    // Diretórios de dependências e pacotes
-    "node_modules",
-    "bower_components",
-    "vendor",
+export const DEFAULT_IGNORE = `# Diretórios de dependências e pacotes
+node_modules
+bower_components
+vendor
+Pods
+platforms
 
-    // Diretórios e arquivos gerados por sistemas de controle de versão
-    ".git",
-    ".svn",
-    ".hg",
-    ".idea", // IntelliJ IDEA
-    ".vscode", // VS Code
+# Diretórios e arquivos gerados por sistemas de controle de versão
+.git
+.svn
+.hg
+.idea
+.vscode
+*.gitignore
 
-    // Diretórios e arquivos gerados por ferramentas de build e compilação
-    "dist",
-    "build",
-    "out",
-    "coverage",
-    ".next",
-    "public", // Next.js
-    "build",
-    ".cache",
-    ".next",
-    "tmp",
-    "logs",
+# Diretórios e arquivos gerados por ferramentas de build e compilação
+dist
+build
+out
+coverage
+.next
+public
+.cache
+tmp
+logs
+lib
+bin
+target
+obj
 
-    // Diretórios e arquivos específicos de ambientes
-    ".env",
-    ".env.local",
-    ".env.development",
-    ".env.production",
-    ".env.test",
+# Diretórios e arquivos específicos de ambientes
+.env
+.env.*
+*.env
+*.env.*
 
-    // Diretórios e arquivos de testes
-    "test-results",
-    "cypress",
-    "e2e",
-    ".test",
-    "spec",
-    "tests",
+# Diretórios e arquivos de testes
+test-results
+cypress
+e2e
+spec
+tests
+*.test.*
 
-    // Arquivos de configuração do sistema e IDE
-    "*.sublime-workspace",
-    "*.sublime-project",
-    "*.code-workspace",
-    "*.vscode",
-    "*.idea",
-    "*.iml",
-    "*.swp",
-    "*.swo",
-    "*.log",
-    "*.tmp",
-    "*.bak",
-    "*.orig",
-    "*.pid",
-    "*.seed",
+# Arquivos de configuração do sistema e IDE
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+*.vscode
+*.idea
+*.iml
+*.swp
+*.swo
+*.log
+*.tmp
+*.bak
+*.orig
+*.pid
+*.seed
 
-    // Arquivos de cache e log
-    ".npm",
-    ".yarn",
-    ".yarn-cache",
-    ".pnpm-store",
-    ".pnp",
-    ".pnp.js",
-    ".pnp.cjs",
-    "yarn-error.log",
-    "package-lock.json",
-    "yarn.lock",
+# Arquivos de cache e log
+.npm
+.yarn
+.pnpm-store
+.pnp
+.pnp.*
+*.log
+*.cache
 
-    // Diretórios e arquivos de deployment
-    ".vercel",
-    ".serverless",
-    ".netlify",
-    ".terraform",
-    "deploy",
-    "deployment",
+# Diretórios e arquivos de deployment
+.vercel
+.serverless
+.netlify
+.terraform
+deploy
+deployment
 
-    // Diretórios e arquivos de documentação e geração de código
-    "docs",
-    "doc",
-    "generated",
-    "out-tsc",
-    "typings",
-    "tsconfig.tsbuildinfo",
+# Diretórios e arquivos de documentação e geração de código
+docs
+doc
+generated
+out-tsc
+typings
+tsconfig.tsbuildinfo
 
-    // Arquivos específicos para ignorar
-    ".DS_Store", // macOS
-    "Thumbs.db", // Windows
-    "ehthumbs.db", // Windows
-    "desktop.ini", // Windows
-    "npm-debug.log",
-    "yarn-debug.log",
-    "yarn-error.log",
-    "pnpm-debug.log",
-    "lerna-debug.log",
-    "tsconfig.json",
-    "jsconfig.json",
-    "package-lock.json",
-    "yarn.lock",
-    // "*.md",
-    // "*.mdx",
+# Arquivos específicos para ignorar
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+npm-debug.log
+yarn-debug.log
+pnpm-debug.log
+lerna-debug.log
 
-    // Video exclude
-    ".github",
-    ".gitignore",
-    ".editorconfig",
-    ".eslintignore",
-    ".eslintrc.json",
-    "LICENSE",
-    "prettier.config.js",
-    "tsup.config.ts",
+# Arquivos de projeto e configuração
+tsconfig.json
+jsconfig.json
+*.lock
+LICENSE
+.prettierignore
+.prettierrc
+.editorconfig
+.eslintignore
+.eslintrc.*
 
-    // Padrões de arquivos
-    "*.jpg",
-    "*.jpeg",
-    "*.png",
-    "*.gif",
-    "*.pdf",
-    "*.log",
-    "*.tmp",
-    "*.bak",
-    "*.swp",
-    "*.swo",
-    "*.zip",
-    "*.tar",
-    "*.gz",
-    "*.rar",
-    "*.lock",
-    "*.sqlite3",
-];
+# Arquivos de mídia, pacotes e compressão
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.pdf
+*.svg
+*.mp4
+*.zip
+*.tar
+*.gz
+*.rar
+*.lock
+*.sqlite3
+*.exe
+*.dmg
+*.pkg
+*.iso
+`;
 
 export const SYSTEM_PROMPT = `Você é um engenheiro de software senior com dezenas de anos de experiência profissional. Você escreve documentações sobre código e estruturas de forma simples, clara e concisa. Seu tom de escrita é técnico.`;
 
